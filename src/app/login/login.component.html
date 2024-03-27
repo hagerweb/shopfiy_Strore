@@ -1,0 +1,192 @@
+<body>
+    <header class="d-flex justify-content-center align-items-center my-4 ">
+        <div class="login  col-md-4 rounded-3 p-4 my-5 shadow-lg">
+            <h2 class="text-center text-main mt-3 mb-4 h7 h2 ">Login </h2>
+
+            <form [formGroup]="loginForm" (ngSubmit)="loginSubmit()">
+
+              
+
+                <input formControlName="email" type="email" placeholder="Email"  class="form-control mt-3 p-2 ps-3 bg-transparent">
+
+                <div  *ngIf="loginForm.get('email')?.errors &&loginForm.get('email')?.touched " class="alert alert-main mt-2">
+                    <p  *ngIf="loginForm.get('email')?.errors?.['required']"> <i class="fa-solid fa-circle-exclamation text-main"></i> Email is Required</p>
+                    <p *ngIf="loginForm.get('email')?.errors?.['email']"> <i class="fa-solid fa-circle-exclamation text-main"></i> Email Should Be Like ...@gmail.com Than 3 Char</p>
+                    
+                </div>
+
+
+                <input formControlName="password"  type="password" placeholder="Password"  class="form-control mt-3 p-2 ps-3 bg-transparent">
+
+                <div  *ngIf="loginForm.get('password')?.errors &&loginForm.get('password')?.touched " class="alert alert-main mt-2">
+                    <p  *ngIf="loginForm.get('password')?.errors?.['required']"> <i class="fa-solid fa-circle-exclamation text-main"></i> Password is Required</p>
+                    <p *ngIf="loginForm.get('password')?.errors?.['pattern']"> <i class="fa-solid fa-circle-exclamation text-main"></i> Password Should be Contain Captail Char</p>
+                    
+                </div>
+
+                
+
+                
+
+                <button [disabled]="loginForm.invalid" type="submit" class="btn bg-main w-100 mt-5  text-white">Log in  <i *ngIf ="isLoading" class="fa-solid fa-spinner fa-spin"></i></button>
+                <div class="d-flex justify-content-center h5  mb-3"> <a class=" text-center text-main dancing-script "   routerLink="/register">Sign Up Now !</a></div>
+                
+                
+
+
+                <!-- Button trigger modal -->
+    <div class="d-flex justify-content-center">
+        <button type="button" class="btn text-center text-main mb-4  h10 fw-bold " data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <span class="dancing-script ">Forget Password </span>
+          </button>
+    </div>
+
+
+    <h3  *ngIf="successMessage&&isSuccess"  class="alert-main text-main h6 text-center p-4">  <i class="fa-regular fa-face-smile text-main"></i> {{successMessage}}</h3>
+    <h3  *ngIf="errMessage&&isError"  class="alert-main text-main h6 text-center p-4">  <i class="fa-solid fa-circle-exclamation text-main"></i> {{errMessage}}</h3>
+
+
+    
+
+  
+  <!-- Modal -->
+
+  <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog"> 
+
+      <div class="modal-content bg-body-main">
+  
+        <div class="modal-header text-center">
+
+          <h1 class="modal-title h9 text-main text-center mt-2" id="exampleModalLabel"> Forget Password !</h1>
+          <button type="button" class="btn-close text-main " data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+
+        <div class="modal-body">
+
+            <!-- ------------ 1 form ---------- -->
+            <form   *ngIf="forgetFlag" [formGroup]="forgetForm" (ngSubmit)="forgetSubmitPassword()">
+                <input formControlName="email" type="email" placeholder="Email"  class="form-control mt-3 p-2 ps-3 bg-transparent">
+
+                <div  *ngIf="forgetForm.get('email')?.errors &&forgetForm.get('email')?.touched " class="alert alert-main mt-2">
+                    <p  *ngIf="forgetForm.get('email')?.errors?.['required']"> <i class="fa-solid fa-circle-exclamation text-main"></i> Email is Required</p>
+                    <p *ngIf="forgetForm.get('email')?.errors?.['email']"> <i class="fa-solid fa-circle-exclamation text-main"></i> Email Should Be Like ...@gmail.com Than 3 Char</p>
+                    
+                </div>
+                <button [disabled]="forgetForm.invalid" type="submit" class="btn bg-main w-100 mt-5 mb-3 text-white">Forget <i *ngIf ="isLoading" class="fa-solid fa-spinner fa-spin"></i></button>
+                
+                <h3  *ngIf="successforgetMessage&&isForgetSuccess"  class="alert-main text-main h6 text-center p-4">  <i class="fa-regular fa-face-smile text-main"></i> {{successforgetMessage}}</h3>
+                <h3  *ngIf="errforgetMessage&&isForgetError"  class="alert-main text-main h6 text-center p-4">  <i class="fa-solid fa-circle-exclamation text-main"></i> {{errforgetMessage}}</h3>
+
+            </form>
+
+            <!-- ------------ 2 form ---------- -->
+
+            <form  *ngIf="verfiyFlag" [formGroup]="resetCodeForm" (ngSubmit)="verfiySubmitPassword()">
+
+                <input formControlName="resetCode" type="resetCode" placeholder="Verfiy Code"  class="form-control mt-3 p-2 ps-3 bg-transparent">
+
+                <div  *ngIf="resetCodeForm.get('resetCode')?.errors &&resetCodeForm.get('resetCode')?.touched " class="alert alert-main mt-2">
+                    <p  *ngIf="resetCodeForm.get('resetCode')?.errors?.['required']"> <i class="fa-solid fa-circle-exclamation text-main"></i> Verfiy Code is Required</p>
+                    
+                </div>
+
+                
+                <button [disabled]="resetCodeForm.invalid" type="submit" class="btn bg-main w-100 mt-5 mb-3 text-white">Verfiy <i *ngIf ="isLoading" class="fa-solid fa-spinner fa-spin"></i></button>
+                <h3  *ngIf="successforgetMessage&&isverfiySuccess"  class="alert-main text-main h6 text-center p-4">  <i class="fa-regular fa-face-smile text-main"></i> {{successforgetMessage}}</h3>
+                <h3  *ngIf="errforgetMessage&&isVerfiyError"  class="alert-main text-main h6 text-center p-4">  <i class="fa-solid fa-circle-exclamation text-main"></i> {{errforgetMessage}}</h3>
+                
+
+            </form>
+
+
+            <!-- 3 Fprm ------------ -->
+                
+            <form  *ngIf="newPassFlag" [formGroup]="newPasswordForm" (ngSubmit)="newPassordSubmitPassword()">
+
+              
+
+                <input formControlName="email" type="email" placeholder="Email"  class="form-control mt-3 p-2 ps-3 bg-transparent">
+
+                <div  *ngIf="newPasswordForm.get('email')?.errors &&newPasswordForm.get('email')?.touched " class="alert alert-main mt-2">
+                    <p  *ngIf="newPasswordForm.get('email')?.errors?.['required']"> <i class="fa-solid fa-circle-exclamation text-main"></i> Email is Required</p>
+                    <p *ngIf="newPasswordForm.get('email')?.errors?.['email']"> <i class="fa-solid fa-circle-exclamation text-main"></i> Email Should Be Like ...@gmail.com Than 3 Char</p>
+                    
+                </div>
+
+
+                <input formControlName="newPassword"  type="password" placeholder="New Password"  class="form-control mt-3 p-2 ps-3 bg-transparent">
+
+                <div  *ngIf="newPasswordForm.get('newPassword')?.errors &&newPasswordForm.get('newPassword')?.touched " class="alert alert-main mt-2">
+                    <p  *ngIf="newPasswordForm.get('newPassword')?.errors?.['required']"> <i class="fa-solid fa-circle-exclamation text-main"></i> Re-Password is Required</p>
+                    <p *ngIf="newPasswordForm.get('newPassword')?.errors?.['pattern']"> <i class="fa-solid fa-circle-exclamation text-main"></i> Re-Password Should be Contain Captail Char</p>
+                    
+                </div>
+
+                
+                <button [disabled]="newPasswordForm.invalid" type="submit" class="btn bg-main w-100 mt-5 mb-3 text-white"> Confirm New Password  <i *ngIf ="isLoading" class="fa-solid fa-spinner fa-spin"></i></button>
+                <h3  *ngIf="successforgetMessage&&isNewPassSuccess"  class="alert-main text-main h6 text-center p-4">  <i class="fa-regular fa-face-smile text-main"></i> Done Successfuly !</h3>
+                <h3  *ngIf="errforgetMessage&&isNewPassError"  class="alert-main text-main h6 text-center p-4">  <i class="fa-solid fa-circle-exclamation text-main"></i>Any SomeThing Wrong ,Try Agian !</h3>
+                
+
+
+            </form>
+
+            
+
+
+
+
+
+
+
+         
+
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+            </form>
+           
+
+        </div>
+    </header>
+</body>

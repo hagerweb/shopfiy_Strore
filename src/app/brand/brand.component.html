@@ -1,0 +1,46 @@
+<div class="container">
+    
+    <div class="d-flex w-50 mx-auto  justify-content-center align-items-center gap-2 mt-4">
+      <input  [(ngModel)]="inputValue" placeholder="Search.." class="form-control form-control-sm my-3   rounded-5 ">
+      <div class="d-flex icon bg-main   justify-content-center align-items-center p-2">
+        <i class="fa-solid fa-camera-retro fs-5 text-white"></i>
+      </div>
+    </div>
+      
+  <section>
+      
+      <div class="container">
+          
+          
+  
+  
+  
+         <div class="row g-5 mt-3">
+             <div *ngFor="let brands of brands | searchcat:inputValue " class="col-sm-6 col-md-3 ">
+                 <div class ="prouduct h-100 pointer ">
+                   
+                  <div [routerLink]="['/brandsDetails', brands._id]" class="mb-prod">
+                   <img class="w-100 h-100" [src]="brands.image" >
+                   <h4  class=" text-main h3 main-f my-3 text-center"> {{brands.name}}</h4>
+  
+                   <!-- <h3 class="  sec-color text-center h6 dancing-script fw-bold mt-2 mb-3">{{catogrgy. | cuttext:3}} </h3> -->
+                   
+                  </div>
+     
+     
+                   
+     
+     
+     
+     
+     
+     
+     
+                 </div>
+             </div>
+         </div>
+      </div>
+     </section>
+     
+  </div>
+  

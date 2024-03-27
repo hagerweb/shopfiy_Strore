@@ -1,0 +1,47 @@
+<body>
+    <header class="d-flex justify-content-center align-items-center my-4 ">
+        <div class="login  col-md-4 rounded-3 p-4 my-5 shadow-lg">
+            <h2 class="text-center text-main mt-3 mb-4 h7 h2 ">Check </h2>
+
+            <form [formGroup]="checkOutForm" (ngSubmit)="chechOutSubmit()">
+
+              
+
+                <input formControlName="details" type="text" placeholder="Details"  class="form-control mt-3 p-2 ps-3 bg-transparent">
+
+                <div  *ngIf="checkOutForm.get('details')?.errors &&checkOutForm.get('details')?.touched " class="alert alert-main mt-2">
+                    <p  *ngIf="checkOutForm.get('details')?.errors?.['required']"> <i class="fa-solid fa-circle-exclamation text-main"></i> Details is Required</p>
+                   
+                </div>
+
+
+                <input  formControlName="phone" type="tel" placeholder="Phone"  class="form-control mt-3 p-2 ps-3 bg-transparent">
+
+                <div  *ngIf="checkOutForm.get('phone')?.errors &&checkOutForm.get('phone')?.touched " class="alert alert-main mt-2">
+                    <p  *ngIf="checkOutForm.get('phone')?.errors?.['required']"> <i class="fa-solid fa-circle-exclamation text-main"></i> Phone is Required</p>
+                    <p *ngIf="checkOutForm.get('phone')?.errors?.['pattern']"> <i class="fa-solid fa-circle-exclamation text-main"></i> Phone Should Be Consist Of 12Number</p>
+                    
+                </div>
+
+                <input  formControlName="city" type="text" placeholder="City"  class="form-control mt-3 p-2 ps-3 bg-transparent">
+
+                <div  *ngIf="checkOutForm.get('city')?.errors &&checkOutForm.get('city')?.touched " class="alert alert-main mt-2">
+                    <p  *ngIf="checkOutForm.get('city')?.errors?.['required']"> <i class="fa-solid fa-circle-exclamation text-main"></i> City is Required</p>
+                   
+                </div>
+                
+
+                
+
+                <button [disabled]="checkOutForm.invalid" type="submit" class="btn bg-main w-100 mt-5  text-white">Payment Now <i *ngIf ="isLoading" class="fa-solid fa-spinner fa-spin"></i></button>
+                
+
+
+                <!-- Button trigger modal -->
+    
+            </form>
+           
+
+        </div>
+    </header>
+</body>

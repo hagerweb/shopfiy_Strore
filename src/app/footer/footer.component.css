@@ -1,0 +1,42 @@
+.pacifico-regular {
+    font-family: "Pacifico", cursive;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 2px;
+  }
+.dancing-script{
+    font-family: "Dancing Script", cursive;
+    
+}
+.urbanis {
+    font-family: "Urbanist", sans-serif;
+    font-optical-sizing: auto;
+   
+  }
+p,a{
+    font-family: cursive;
+    color: rgb(97, 96, 96);
+    font-size: 15px;
+}
+.bg-body-main{
+    background-color: rgb(255, 247, 228);
+    margin-top: 100px !important;
+}
+a{
+    text-decoration: none;
+   margin-top: 12px;
+    
+}
+.btn{
+    transition: 0.7s all;
+
+}
+.btn:hover{
+    border: 1px solid rgb(108, 76, 7) !important;
+    background-color: transparent !important;
+    color: rgb(108, 76, 7) !important;
+
+}
+.col-md-2,.col-md-4{
+    margin-left: 50px !important;
+}

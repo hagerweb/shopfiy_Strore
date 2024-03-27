@@ -1,0 +1,67 @@
+<body>
+    <header class="d-flex justify-content-center align-items-center ">
+        <div class="col-md-4 rounded-3 p-4 my-5 shadow-lgg">
+            <h2 class="text-center text-main mt-3 mb-4 h7 h2 ">Sign Up.. </h2>
+
+            <form [formGroup]="registerForm" (ngSubmit)="registerSubmit()">
+
+                <input  formControlName="name" type="text" placeholder="Name"  class="form-control mt-3 p-2 ps-3 bg-transparent ">
+
+                <div  *ngIf="registerForm.get('name')?.errors &&registerForm.get('name')?.touched " class="alert alert-main mt-2">
+                    <p  *ngIf="registerForm.get('name')?.errors?.['required']"> <i class="fa-solid fa-circle-exclamation text-main"></i> Name is Required</p>
+                    <p *ngIf="registerForm.get('name')?.errors?.['minlength']"> <i class="fa-solid fa-circle-exclamation text-main"></i> Name Should More Than 3 Char</p>
+                    <p *ngIf="registerForm.get('name')?.errors?.['maxlength']" > <i class="fa-solid fa-circle-exclamation text-main"></i> Please Enter Valid Name Should Less Than 8 Char</p>
+                </div>
+
+                <input formControlName="email" type="email" placeholder="Email"  class="form-control mt-3 p-2 ps-3 bg-transparent">
+
+                <div  *ngIf="registerForm.get('email')?.errors &&registerForm.get('email')?.touched " class="alert alert-main mt-2">
+                    <p  *ngIf="registerForm.get('email')?.errors?.['required']"> <i class="fa-solid fa-circle-exclamation text-main"></i> Email is Required</p>
+                    <p *ngIf="registerForm.get('email')?.errors?.['email']"> <i class="fa-solid fa-circle-exclamation text-main"></i> Email Should Be Like ...@gmail.com Than 3 Char</p>
+                    
+                </div>
+
+
+                <input formControlName="password"  type="password" placeholder="Password"  class="form-control mt-3 p-2 ps-3 bg-transparent">
+
+                <div  *ngIf="registerForm.get('password')?.errors &&registerForm.get('password')?.touched " class="alert alert-main mt-2">
+                    <p  *ngIf="registerForm.get('password')?.errors?.['required']"> <i class="fa-solid fa-circle-exclamation text-main"></i> Password is Required</p>
+                    <p *ngIf="registerForm.get('password')?.errors?.['pattern']"> <i class="fa-solid fa-circle-exclamation text-main"></i> Password Should be Contain Captail Char</p>
+                    
+                </div>
+
+                <input formControlName="rePassword"  type="password" placeholder="Re-Password"  class="form-control mt-3 p-2 ps-3 bg-transparent">
+
+
+                
+
+                <div  *ngIf="registerForm.get('rePassword')?.errors &&registerForm.get('rePassword')?.touched " class="alert alert-main mt-2">
+                    <p  *ngIf="registerForm.get('rePassword')?.errors?.['required']"> <i class="fa-solid fa-circle-exclamation text-main"></i> Please Confrim Password Is Required</p>
+                    <p *ngIf="registerForm.get('rePassword')?.errors?.['pattern']"> <i class="fa-solid fa-circle-exclamation text-main"></i> Confirm Password Should be Contain Captail Char</p>
+                   
+                </div>
+                <p *ngIf="registerForm.errors?.['notMatchPassword'] && !registerForm.get('rePassword')?.errors?.['required'] && !registerForm.get('rePassword')?.errors?.['pattern']" class="alert alert-main mt-2"> <i class="fa-solid fa-circle-exclamation text-main"></i> Password Not Match</p>
+                    
+
+                <input  formControlName="phone" type="Phone" placeholder="Phone"  class="form-control mt-3 p-2 ps-3 bg-transparent">
+
+                <div  *ngIf="registerForm.get('phone')?.errors &&registerForm.get('phone')?.touched " class="alert alert-main mt-2">
+                    <p  *ngIf="registerForm.get('phone')?.errors?.['required']"> <i class="fa-solid fa-circle-exclamation text-main"></i> Phone is Required</p>
+                    <p *ngIf="registerForm.get('phone')?.errors?.['pattern']"> <i class="fa-solid fa-circle-exclamation text-main"></i> Phone Should Be Consist Of 12Number</p>
+                    
+                </div>
+                
+
+                <button [disabled]="registerForm.invalid" type="submit" class="btn bg-main w-100 mt-5 mb-2 text-white">Register  <i *ngIf ="isLoading" class="fa-solid fa-spinner fa-spin"></i></button>
+               <div class="d-flex justify-content-center h5 mt-2 mb-4"> <a class=" text-center text-main dancing-script "   routerLink="/login">Already Have Account</a></div>
+                
+            </form>
+
+            <h3  *ngIf="errMessage&&isError"  class="alert-main text-main h6 text-center p-4">  <i class="fa-solid fa-circle-exclamation text-main"></i> {{errMessage}}</h3>
+            <h3  *ngIf="successMessage&&isSuccess"  class="alert-main text-main h6 text-center p-4">  <i class="fa-regular fa-face-smile text-main"></i> {{successMessage}}</h3>
+          
+           
+
+        </div>
+    </header>
+</body>

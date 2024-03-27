@@ -1,0 +1,56 @@
+/* header{
+    background: linear-gradient(rgba(0,0,0,0.5) 0% 100%) , url('slider01.jpg');
+    background-position: center;
+    background-size: cover;
+    height: 90vh;
+} */
+.w-30{
+    width: 30%;
+}
+.login{
+    transition: 0.5s all;
+    border:  rgb(108, 76, 7) 2px solid;
+
+}
+.login:hover{
+    border:  rgb(108, 76, 7)  2px solid;
+    
+
+}
+.h7{
+    
+    font-family: cursive;
+}
+.bg-transparent{
+    border-top: 0 !important;
+    border-right: 0 !important;border-left: 0 !important;
+
+}
+.btn{
+    font-size: 20px !important;
+    font-weight: 600;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    transition: 1s all;
+}
+.btn:hover{
+    border: 2px solid rgb(108, 76, 7) !important;
+    background-color: transparent !important;
+    color: rgb(108, 76, 7) !important;
+
+}
+input::-webkit-input-placeholder {
+    color:rgb(108, 76, 7) ;
+   
+}
+
+input:-moz-placeholder {
+color: rgb(108, 76, 7) ;
+ }
+ .form-control:focus{
+    background-color:  #F4F4F4;
+     -webkit-box-shadow:none;
+     box-shadow: none;
+ }
+.h7{
+    font-size: 35px;
+}

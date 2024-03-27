@@ -1,0 +1,64 @@
+
+i{
+    font-size: 19px;
+}
+.pacifico-regular {
+    font-family: "Pacifico", cursive;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 2px;
+  }
+.dancing-script{
+    font-family: "Dancing Script", cursive;
+    
+   
+}
+.fa-bag-shopping {
+    margin-right: 60px;
+    margin-top: 5px ;
+}
+ul li {
+    position: relative;
+    
+  }
+
+ul li::after{
+
+    content: "";
+    width: 0%;
+    background-color: rgb(108, 76, 7);
+    height: 2.5px;
+    margin: auto;
+    transition: 0.8s all;
+    position: absolute;
+    bottom:0;
+    left: 0;
+    right: 0;
+   
+    
+}  
+ul li:hover::after {
+    width: 70%;
+
+}
+.font-main{
+    font-family: cursive !important;
+    text-decoration: none;
+}
+a{
+    color: black;
+    font-weight: 600;
+}
+.cart{
+    position: relative;
+}
+.cart-span{
+    position: absolute;
+    border-top: 10px;
+ 
+    border-right: 10px;
+    border-bottom-left-radius:0px;
+    top: -12%;
+    right: -40%;
+}
+  

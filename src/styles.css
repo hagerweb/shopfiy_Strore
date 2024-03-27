@@ -1,0 +1,101 @@
+.bg-main{
+    background-color:rgb(108, 76, 7) !important;
+}
+.text-main{
+    color:rgb(108, 76, 7) !important;
+    
+}
+.pointer{
+    cursor: pointer;
+    transition: 0.5s all;
+}
+.bg-black-o{
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.alert-main{
+    background-color:  rgb(251, 238, 205);
+    border: 1px solid rgb(108, 76, 7) ;
+    border-radius: 0px 10px 10px 10px;
+
+}
+.font-main{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.text-sec{
+    color:#836161 ;
+ }
+.prouduct{
+   
+    transition: all 0.5s;
+    overflow: hidden;
+    position: relative;
+   
+   
+}
+.fa-heart{
+    
+    transition: all 0.5s;
+    position: absolute;
+    top: 1%;
+    right: 2%;
+    font-size: 18px !important;
+    opacity: 0;
+} 
+
+.prouduct:hover{
+    transform: scale(1.1);
+}
+.prouduct:hover .fa-heart{
+    opacity: 1;
+}
+.rating{
+    color:gold;
+}
+::-webkit-scrollbar-track{
+    background-color: black !important;
+}
+::-webkit-scrollbar-thumb{
+    background-color: aqua !important;
+}
+   
+.main-f{
+    
+    font-family: cursive !important;
+}
+.pacifico-regular {
+    font-family: "Pacifico", cursive;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 2px;
+  }
+.dancing-script{
+    font-family: "Dancing Script", cursive;
+
+    
+   
+}
+.sec-color{
+    color:rgb(114, 104, 83) ;
+}
+.filter{
+ 
+    margin-top: 10px;
+}
+.sub-btn{
+    transition: all 0.5s;
+    position: absolute;
+    bottom: -20%;
+    left: 0;
+    right: 0;
+
+}
+
+.prouduct:hover button{
+    bottom: 0%;
+}
+a{
+    text-decoration: none;
+}
+.prouduct img{
+    margin-top: 30px !important; 
+}
